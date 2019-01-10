@@ -43,7 +43,7 @@ Plug 'kana/vim-textobj-syntax'
 Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
 Plug 'sgur/vim-textobj-parameter'
 
-" fold 
+" fold
 Plug 'pseewald/vim-anyfold'
 
 " color
@@ -69,6 +69,7 @@ syntax on
 " search
 set incsearch
 " set highlight 	" conflict with highlight current line
+set hlsearch
 set ignorecase
 set smartcase
 " set cursorcolumn
@@ -151,7 +152,7 @@ nnoremap <Leader>f :bn<CR>
 " 查看buffers
 nnoremap <Leader>l :ls<CR>
 
-" 通过索引快速跳转
+"" 通过索引快速跳转
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -161,3 +162,17 @@ nnoremap <Leader>6 :6b<CR>
 nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
+
+set pastetoggle=<F12>
+
+" 移除行末尾空格
+au BufWritePre * call Removetrailingspace()
+function! Removetrailingspace()
+  if $vim_hate_space_errors != '0' &&
+        \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'h' ||
+        \&filetype == 'vim' || &filetype == 'sh' || &filetype == 'python')
+    normal m`
+    silent! :%s/\s\+$//e
+    normal ``
+  endif
+endfunction
