@@ -56,6 +56,9 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " echodoc
 Plug 'Shougo/echodoc.vim'
 
+" complete
+Plug 'zxqfl/tabnine-vim'
+
 " Initialize plugin system
 call plug#end()
 
