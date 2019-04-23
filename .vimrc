@@ -59,6 +59,9 @@ Plug 'Shougo/echodoc.vim'
 " complete
 Plug 'zxqfl/tabnine-vim'
 
+" class outline viewer
+Plug 'majutsushi/tagbar'
+
 " Initialize plugin system
 call plug#end()
 
@@ -179,3 +182,6 @@ function! Removetrailingspace()
     normal ``
   endif
 endfunction
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
