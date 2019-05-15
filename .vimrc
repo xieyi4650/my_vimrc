@@ -139,7 +139,8 @@ autocmd BufReadPost *
 
 
 " vim-anyfold
-let anyfold_activate=1
+autocmd Filetype * AnyFoldActivate
+let g:anyfold_fold_comments=1
 set foldlevel=0
 hi Folded term=underline
 autocmd Filetype cpp set foldignore=#/
@@ -184,4 +185,4 @@ function! Removetrailingspace()
 endfunction
 
 " tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
