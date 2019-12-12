@@ -49,6 +49,11 @@ Plug 'pseewald/vim-anyfold'
 " color
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+
+" status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " LeaderF open file
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
