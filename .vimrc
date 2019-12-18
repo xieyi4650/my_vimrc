@@ -67,6 +67,9 @@ Plug 'zxqfl/tabnine-vim'
 " class outline viewer
 Plug 'majutsushi/tagbar'
 
+" comment
+Plug 'scrooloose/nerdcommenter'
+
 " Initialize plugin system
 call plug#end()
 
