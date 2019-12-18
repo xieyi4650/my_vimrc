@@ -202,14 +202,14 @@ let g:NERDSpaceDelims = 1
 " setting airline
 let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
 " 这个是安装字体后 必须设置此项
-" let g:airline_powerline_fonts = 1
-" let g:airline_theme='bubblegum' "选择主题
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum' "选择主题
 let g:airline#extensions#tabline#enabled = 1    "Smarter tab line:
 " 显示窗口tab和buffer
-" let g:airline#extensions#tabline#left_sep = ' '  "separater
-" let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
-" let g:airline#extensions#tabline#formatter = 'default'  "formater
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '◀'
-" let g:airline_left_alt_sep = '❯'
-" let g:airline_right_alt_sep = '❮'"
+let g:airline#extensions#tabline#left_sep = ' '  "separater
+let g:airline#extensions#tabline#left_alt_sep = '|'  "separater
+let g:airline#extensions#tabline#formatter = 'default'  "formater
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_alt_sep = '❮'"
