@@ -64,6 +64,9 @@ Plug 'Shougo/echodoc.vim'
 " complete
 Plug 'zxqfl/tabnine-vim'
 
+" format
+Plug 'rhysd/vim-clang-format'
+
 " class outline viewer
 Plug 'majutsushi/tagbar'
 
