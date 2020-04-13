@@ -205,6 +205,9 @@ let g:tagbar_width = 80
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" clang-format
+let g:clang_format#auto_format_on_insert_leave=1
+
 " setting airline
 let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
 " 这个是安装字体后 必须设置此项
