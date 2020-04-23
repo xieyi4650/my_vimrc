@@ -222,3 +222,28 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_alt_sep = '❮'"
+
+" clang-format : pip install clang, download 
+let g:clang_format#auto_format_on_insert_leave=1
+" Clang-format
+map <C-K> :py3f ~/.vim/plugin/clang-format.py<cr>
+imap <C-K><c-o>:py3f ~/.vim/plugin/clang-format.py<cr>
+function FormatBuffer()
+  if &modified && !empty(findfile('.clang-format', expand('%:p:h') . ';'))
+    let cursor_pos = getpos('.')
+    :%!clang-format
+    call setpos('.', cursor_pos)
+  endif
+endfunction
+autocmd BufWritePre .h,.hpp,.c,.cpp,*.cc :call FormatBuffer()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" yapf-format pip install yapf
+map <C-Y> :call yapf#YAPF()<cr>
+imap <C-Y> <c-o>:call yapf#YAPF()<cr>
+function FormatBufferYAPF()
+  let cursor_pos = getpos('.')
+  :%!yapf
+  call setpos('.', cursor_pos)
+endfunction
+"autocmd BUfWritePre *.py :call FormatBufferYAPF()
+map <C-Y> :call FormatBufferYAPF()<cr>
