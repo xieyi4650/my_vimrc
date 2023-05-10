@@ -76,6 +76,9 @@ Plug 'scrooloose/nerdcommenter'
 " This plugin provides a start screen for Vim and Neovim.
 Plug 'mhinz/vim-startify'
 
+" high light
+Plug 'lfv89/vim-interestingwords'
+
 " Initialize plugin system
 call plug#end()
 
@@ -250,3 +253,6 @@ function FormatBufferYAPF()
 endfunction
 "autocmd BUfWritePre *.py :call FormatBufferYAPF()
 map <C-Y> :call FormatBufferYAPF()<cr>
+
+" vim-interestingwords
+let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
