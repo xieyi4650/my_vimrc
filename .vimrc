@@ -64,6 +64,7 @@ Plug 'Shougo/echodoc.vim'
 
 " complete
 Plug 'zxqfl/tabnine-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " format
 Plug 'rhysd/vim-clang-format'
