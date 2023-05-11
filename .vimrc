@@ -50,6 +50,7 @@ Plug 'pseewald/vim-anyfold'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 
 " status bar
 Plug 'vim-airline/vim-airline'
