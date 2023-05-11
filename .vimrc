@@ -71,7 +71,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'majutsushi/tagbar'
 
 " comment
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " This plugin provides a start screen for Vim and Neovim.
 Plug 'mhinz/vim-startify'
@@ -208,8 +208,36 @@ let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_width = 80
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" config nerdcomment start
+213 " Add spaces after comment delimiters by default
+214 let g:NERDSpaceDelims = 1
+215 " Create default mappings
+216 let g:NERDCreateDefaultMappings = 1
+217
+218 " Add spaces after comment delimiters by default
+219 let g:NERDSpaceDelims = 1
+220
+221 " Use compact syntax for prettified multi-line comments
+222 let g:NERDCompactSexyComs = 1
+223
+224 " Align line-wise comment delimiters flush left instead of following code indentation
+225 let g:NERDDefaultAlign = 'left'
+226
+227 " Set a language to use its alternate delimiters by default
+228 let g:NERDAltDelims_python = 1
+229
+230 " Add your own custom formats or override the defaults
+231 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+232
+233 " Allow commenting and inverting empty lines (useful when commenting a region)
+234 let g:NERDCommentEmptyLines = 1
+235
+236 " Enable trimming of trailing whitespace when uncommenting
+237 let g:NERDTrimTrailingWhitespace = 1
+238
+239 " Enable NERDCommenterToggle to check all selected lines is commented or not
+240 let g:NERDToggleCheckAllLines = 1
+241 " config nerdcomment end
 
 " clang-format
 let g:clang_format#auto_format_on_insert_leave=1
@@ -218,7 +246,11 @@ let g:clang_format#auto_format_on_insert_leave=1
 let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
 " 这个是安装字体后 必须设置此项
 let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum' "选择主题
+" let g:airline_theme='bubblegum' "选择主题
+let g:airline_theme='molokai' "选择主题
+" let g:airline_theme='murmur' "选择主题
+" let g:airline_theme='solarized' 
+" let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1    "Smarter tab line:
 " 显示窗口tab和buffer
 let g:airline#extensions#tabline#left_sep = ' '  "separater
