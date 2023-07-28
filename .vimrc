@@ -17,7 +17,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Multiple Plug commands can be written in a single line using | separators
-" conflict with coc.nvim imap <tab>
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
@@ -49,9 +48,11 @@ Plug 'pseewald/vim-anyfold'
 
 " color
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'tomasr/molokai'
+Plug 'joshdick/onedark.vim'
+Plug 'lifepillar/vim-solarized8'
 
 " status bar
 Plug 'vim-airline/vim-airline'
@@ -64,7 +65,8 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Shougo/echodoc.vim'
 
 " complete
-Plug 'zxqfl/tabnine-vim'
+" Plug 'zxqfl/tabnine-vim'
+" Use release branch (recommended)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " format
@@ -76,7 +78,7 @@ Plug 'majutsushi/tagbar'
 " comment
 Plug 'preservim/nerdcommenter'
 
-" This plugin provides a start screen for Vim and Neovim.
+" This plugin provides a start screen for Vim
 Plug 'mhinz/vim-startify'
 
 " high light
@@ -98,7 +100,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-" set cursorcolumn
+set cursorcolumn
 
 
 " editor settings
@@ -147,7 +149,9 @@ set cmdheight=2
 " color
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme gruvbox
+colorscheme molokai
+colorscheme onedark
 
 " When editing a file, always jump to the last cursor position
 autocmd BufReadPost *
@@ -164,6 +168,7 @@ let g:anyfold_fold_comments=1
 set foldlevel=0
 hi Folded term=underline
 autocmd Filetype cpp set foldignore=#/
+autocmd Filetype py set foldignore=#/
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -192,17 +197,17 @@ nnoremap <Leader>9 :9b<CR>
 
 set pastetoggle=<F12>
 
-" 移除行末尾空格
-au BufWritePre * call Removetrailingspace()
-function! Removetrailingspace()
-  if $vim_hate_space_errors != '0' &&
-        \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'h' ||
-        \&filetype == 'vim' || &filetype == 'sh' || &filetype == 'python')
-    normal m`
-    silent! :%s/\s\+$//e
-    normal ``
-  endif
-endfunction
+" " 移除行末尾空格
+" au BufWritePre * call Removetrailingspace()
+" function! Removetrailingspace()
+"   if $vim_hate_space_errors != '0' &&
+"         \(&filetype == 'c' || &filetype == 'cpp' || &filetype == 'h' ||
+"         \&filetype == 'vim' || &filetype == 'sh' || &filetype == 'python')
+"     normal m`
+"     silent! :%s/\s\+$//e
+"     normal ``
+"   endif
+" endfunction
 
 " tagbar
 " nmap <F8> :TagbarToggle<CR>
@@ -212,47 +217,48 @@ let g:tagbar_sort = 0
 let g:tagbar_width = 80
 
 " config nerdcomment start
-213 " Add spaces after comment delimiters by default
-214 let g:NERDSpaceDelims = 1
-215 " Create default mappings
-216 let g:NERDCreateDefaultMappings = 1
-217
-218 " Add spaces after comment delimiters by default
-219 let g:NERDSpaceDelims = 1
-220
-221 " Use compact syntax for prettified multi-line comments
-222 let g:NERDCompactSexyComs = 1
-223
-224 " Align line-wise comment delimiters flush left instead of following code indentation
-225 let g:NERDDefaultAlign = 'left'
-226
-227 " Set a language to use its alternate delimiters by default
-228 let g:NERDAltDelims_python = 1
-229
-230 " Add your own custom formats or override the defaults
-231 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-232
-233 " Allow commenting and inverting empty lines (useful when commenting a region)
-234 let g:NERDCommentEmptyLines = 1
-235
-236 " Enable trimming of trailing whitespace when uncommenting
-237 let g:NERDTrimTrailingWhitespace = 1
-238
-239 " Enable NERDCommenterToggle to check all selected lines is commented or not
-240 let g:NERDToggleCheckAllLines = 1
-241 " config nerdcomment end
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_python = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+" config nerdcomment end
 
 " clang-format
 let g:clang_format#auto_format_on_insert_leave=1
 
 " setting airline
 let g:airline#extensions#tabline#enabled = 1   " 是否打开tabline
+
 " 这个是安装字体后 必须设置此项
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='bubblegum' "选择主题
 let g:airline_theme='molokai' "选择主题
-" let g:airline_theme='murmur' "选择主题
-" let g:airline_theme='solarized' 
+" let g:airline_theme='murmur' "é择主题
+" let g:airline_theme='solarized'
 " let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1    "Smarter tab line:
 " 显示窗口tab和buffer
@@ -264,7 +270,7 @@ let g:airline_right_sep = '◀'
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_alt_sep = '❮'"
 
-" clang-format : pip install clang, download 
+" clang-format : pip install clang, download
 let g:clang_format#auto_format_on_insert_leave=1
 " Clang-format
 map <C-K> :py3f ~/.vim/plugin/clang-format.py<cr>
@@ -279,21 +285,22 @@ endfunction
 autocmd BufWritePre .h,.hpp,.c,.cpp,*.cc :call FormatBuffer()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " yapf-format pip install yapf
-map <C-Y> :call yapf#YAPF()<cr>
-imap <C-Y> <c-o>:call yapf#YAPF()<cr>
+" map <C-Y> :call yapf#YAPF()<cr>
+" imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 function FormatBufferYAPF()
   let cursor_pos = getpos('.')
-  :%!yapf
+  :%!yapf --style='{based_on_style: google, column_limit: 100, indent_width: 4}'
   call setpos('.', cursor_pos)
 endfunction
-"autocmd BUfWritePre *.py :call FormatBufferYAPF()
+autocmd BUfWritePre *.py :call FormatBufferYAPF()
 map <C-Y> :call FormatBufferYAPF()<cr>
 
-" vim-interestingwords
+" vim-interestingwords randomise and configure your own colors
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
 
-""" coc.nvim config start
+let g:coc_disable_startup_warning = 1
 
+" " " Added by coc.nvim start
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
@@ -343,7 +350,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> ge <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -366,8 +373,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -454,4 +461,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-""" coc.nvim config end
+" " " Added by coc.nvim end
+
+set makeprg=pylint\ --reports=n\ --output-format=parseable\ ~/pylintrc
+set errorformat=%f:%l:\ %m
