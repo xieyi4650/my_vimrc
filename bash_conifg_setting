@@ -1,0 +1,29 @@
+终端 terminal
+1. 光标跳转
+# 设置后可以像在vim中那样跳转和编辑命令行
+set -o vi
+oh-my-zsh
+运行速度比较快, 可以安装各种插件, 但是由于项目中经常用到bash需要频繁切换, 所以
+bash
+1. Fzf 模糊查找
+2. exa - 现代化的ls替代品
+# 在Ubuntu/Debian上安装
+sudo apt install exa
+
+# 添加别名到 .bashrc
+alias ll='exa -l --icons'
+alias la='exa -la --icons'
+alias lt='exa --tree --icons'
+3. bat - 带有语法高亮的cat替代品
+sudo apt install bat
+
+# 在某些系统中可能需要添加别名
+alias cat='batcat'  # Ubuntu/Debian
+# alias cat='bat'   # 其他系统
+4. z - 智能的目录跳转（类似autojump但更轻量）
+git clone https://github.com/rupa/z.git ~/.z
+echo '. ~/.z/z.sh' >> ~/.bashrc
+5. fd - 现代化的find替代品
+sudo apt install fd-find
+6. ripgrep (rg) - 超快的grep替代品
+sudo apt install ripgrep
